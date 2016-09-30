@@ -18,8 +18,8 @@ def start():
     thread = ScheduleThread()
     thread.start()
 
-    time.sleep(2)
-    add_event(test.entry)
+    #time.sleep(2)
+    #add_event(test.entry)
 
 class ScheduleThread(threading.Thread):
     """Thread subclass for manipulating the working with the event list.
