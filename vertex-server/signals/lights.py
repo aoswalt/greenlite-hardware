@@ -36,11 +36,12 @@ class LightsThread(threading.Thread):
         """
         for pair in self.active_pin_pairs:
             # print('pair', pair)
-            if self.last_pair:
-                for pin in pair:
-                    self.pins[pin].off()
+            #if self.last_pair:
             for pin in pair:
                 self.pins[pin].on()
+            time.sleep(self.delay)
+            for pin in pair:
+                self.pins[pin].off()
             self.last_pair = pair
             time.sleep(self.delay)
 
