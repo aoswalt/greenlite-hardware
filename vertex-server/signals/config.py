@@ -1,20 +1,30 @@
-central_server_address = 'http://localhost:8000/'
-# central_server_address = 'http://10.0.0.21/'
+#central_server_address = 'http://localhost:8000/'
+central_server_address = 'http://192.168.0.200/'
 
-intersection_label = '_unset_'
+intersection_label = 'inter2'
 
 # light pin definitions
 light_pins = {
-  'a1r': (1, 1),
-  'a1y': (1, 2),
-  'a1g': (1, 3),
-  'a1gl': (1, 6),
-  'a2r': (3, 1),
-  'a2y': (3, 2),
-  'a2g': (3, 3),
-  'b1r': (2, 1),
-  'b1y': (2, 2),
-  'b1g': (2, 3),
+    'as1r': (12,),
+    'as1y': (5,),
+    'as1g': (13,),
+    'as2r': (0,),
+    'as2y': (6,),
+    'as2g': (26,),
+    'alg': (19,),
+    'bsr': (1,),
+    'bsy': (7,),
+    'bsg': (8,),
+    'cs1r': (25,),
+    'cs1y': (10,),
+    'cs1g': (22,),
+    'cs2r': (11,),
+    'cs2y': (9,),
+    'cs2g': (27,),
+    'clg': (17,),
+    'dsr': (21,),
+    'dsy': (20,),
+    'dsg': (16,),
 }
 
 # map lights keys to directions
@@ -23,21 +33,40 @@ mapping_labels = {
         'L': (
             ('',),
             ('',),
-            ('a1gl',),
+            ('alg',),
         ),
         'S': (
-            ('a1r', 'a2r',),
-            ('a1y', 'a2y',),
-            ('a1g', 'a2g',),
+            ('as1r', 'as2r',),
+            ('as1y', 'as2y',),
+            ('as1g', 'as2g',),
         ),
     },
     'roadB': {
         'S': (
-            ('b1r',),
-            ('b1y',),
-            ('b1g',),
+            ('bsr',),
+            ('bsy',),
+            ('bsg',),
         ),
-    }
+    },
+    'roadC': {
+        'L': (
+            ('',),
+            ('',),
+            ('clg',),
+        ),
+        'S': (
+            ('cs1r', 'cs2r',),
+            ('cs1y', 'cs2y',),
+            ('cs1g', 'cs2g',),
+        ),
+    },
+    'roadD': {
+        'S': (
+            ('dsr',),
+            ('dsy',),
+            ('dsg',),
+        ),
+    },
 }
 
 # fallback pattern
@@ -46,10 +75,14 @@ disabled_pattern = {
         {
             'roadA': {},
             'roadB': {'L':0, 'S':0, 'R':0},
+            'roadC': {},
+            'roadD': {'L':0, 'S':0, 'R':0},
         },
         {
             'roadA': {'L':0, 'S':0, 'R':0},
             'roadB': {},
+            'roadC': {'L':0, 'S':0, 'R':0},
+            'roadD': {},
         },
     ]
 }
