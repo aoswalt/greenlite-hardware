@@ -12,8 +12,8 @@ def get_network_ip():
 view_path = 'vertex/'
 headers = {
     'label': signals.config.intersection_label,
-    # 'address': get_network_ip(),
-    'address': 'http://localhost:8001/',
+    'address': get_network_ip(),
+    #'address': 'http://localhost:8001/',
 }
 server_aware = False
 

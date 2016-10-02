@@ -1,55 +1,66 @@
-central_server_address = 'http://localhost:8000/'
-# central_server_address = 'http://10.0.0.21/'
+#central_server_address = 'http://localhost:8000/'
+central_server_address = 'http://10.0.0.21/'
 
-intersection_label = '_unset_'
+intersection_label = 'node2'
 
 # light pin definitions
 light_pins = {
-  'a1r': (1, 1),
-  'a1y': (1, 2),
-  'a1g': (1, 3),
-  'a1gl': (1, 6),
-  'a2r': (3, 1),
-  'a2y': (3, 2),
-  'a2g': (3, 3),
-  'b1r': (2, 1),
-  'b1y': (2, 2),
-  'b1g': (2, 3),
+  'alr': (19,),
+  'aly': (13,),
+  'alg': (5,),
+  'asr': (26,),
+  'asy': (6,),
+  'asg': (0,),
+  'bsr': (25,),
+  'bsy': (8,),
+  'bsg': (7,),
+  'csr': (16,),
+  'csy': (20,),
+  'csg': (21,),
 }
 
 # map lights keys to directions
 mapping_labels = {
     'roadA': {
         'L': (
-            ('',),
-            ('',),
-            ('a1gl',),
+            ('alr',),
+            ('aly',),
+            ('alg',),
         ),
         'S': (
-            ('a1r', 'a2r',),
-            ('a1y', 'a2y',),
-            ('a1g', 'a2g',),
+            ('asr',),
+            ('asy',),
+            ('asg',),
         ),
     },
     'roadB': {
         'S': (
-            ('b1r',),
-            ('b1y',),
-            ('b1g',),
+            ('bsr',),
+            ('bsy',),
+            ('bsg',),
         ),
-    }
+    },
+    'roadC': {
+        'S': (
+            ('csr',),
+            ('csy',),
+            ('csg',),
+        ),
+    },
 }
 
 # fallback pattern
 disabled_pattern = {
     'signals': [
         {
-            'roadA': {},
-            'roadB': {'L':0, 'S':0, 'R':0},
-        },
-        {
             'roadA': {'L':0, 'S':0, 'R':0},
             'roadB': {},
+            'roadC': {'L':0, 'S':0, 'R':0},
+        },
+        {
+            'roadA': {},
+            'roadB': {'L':0, 'S':0, 'R':0},
+            'roadC': {},
         },
     ]
 }
